@@ -26,6 +26,9 @@ define(['bs', 'Const', 'UI', 'Map', 'InfoWindow', 'MissionsChain', 'story/Free',
         var resumeGame = localStorage.getItem('userPosition');
 
         if (resumeGame) {
+
+            ga('send', 'event', 'game', 'resume');
+
             var content = '<h1 class="story-name">' + this.story.getTitle() + '</h1>' + UI.renderActionButtons([
                 {
                     id: 'resume',
@@ -36,6 +39,9 @@ define(['bs', 'Const', 'UI', 'Map', 'InfoWindow', 'MissionsChain', 'story/Free',
                 }
             ], 'continue-buttons') + UI.getIntroFooter();
         } else {
+
+            ga('send', 'event', 'game', 'new game');
+
             // Show intro text.
             var content = '<h1 class="story-name">' + this.story.getTitle() + '</h1>' +
                 '<div class="story-intro">' + this.story.getIntro() + '</div>' +
@@ -88,6 +94,7 @@ define(['bs', 'Const', 'UI', 'Map', 'InfoWindow', 'MissionsChain', 'story/Free',
             this.user.setPosition(Const.defaultMapCenterBackground);
             this.story.getPosition(this.map, initPromise, function(location) {
                 this.setPosition(location);
+                ga('send', 'event', 'game', 'location', location);
             }.bind(this));
         }
 
