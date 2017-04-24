@@ -56,7 +56,6 @@ define(['bs', 'Const', 'UI', 'Map', 'InfoWindow', 'MissionsChain', 'story/Free',
         }.bind(this));
         $('#share').on('click', function(shareEv) {
             shareEv.preventDefault();
-
             UI.showShare();
         });
 

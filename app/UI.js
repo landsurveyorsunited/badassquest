@@ -105,16 +105,19 @@ define(['bs'], function($) {
             });
 
             $('#share-twitter').on('click', function(ev) {
+                ga('send', 'social', 'twitter', 'tweet');
                 ev.preventDefault();
                 window.open(this.href, 'twitter', 'height=250, width=400');
             });
 
             $('#share-facebook').on('click', function(ev) {
+                ga('send', 'social', 'facebook', 'send');
                 ev.preventDefault();
                 window.open(this.href, 'facebook', 'height=400, width=700');
             });
 
             $('#share-email').on('click', function(ev) {
+                ga('send', 'social', 'email', 'send');
                 ev.preventDefault();
                 window.open(this.href, 'email', 'height=400, width=550');
             });
